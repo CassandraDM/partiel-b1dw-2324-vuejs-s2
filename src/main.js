@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import App from "./App.vue";
 import PersonalInformations from "./components/PersonalInformations.vue";
 import EventChoice from "./components/EventChoice.vue";
+import SelectSession from "./components/SelectSession.vue";
 import "./style.css";
 
 const routes = [
@@ -12,7 +13,11 @@ const routes = [
   },
   {
     path: "/event-choice",
-    componet: EventChoice,
+    component: EventChoice,
+  },
+  {
+    path: "/select-session",
+    component: SelectSession,
   },
 ];
 
