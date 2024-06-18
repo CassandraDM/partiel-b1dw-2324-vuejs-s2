@@ -13,10 +13,12 @@ const routes = [
   },
   {
     path: "/event-choice",
+    name: "EventChoice",
     component: EventChoice,
   },
   {
     path: "/select-session",
+    name: "SelectSession",
     component: SelectSession,
   },
 ];

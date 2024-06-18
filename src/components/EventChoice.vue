@@ -1,11 +1,13 @@
 <script setup>
 import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
 import activitiesData from "../../public/data_activities.json";
 
 const activities = ref(activitiesData);
 const selectedSport = ref("");
 const selectedCategory = ref("");
 const ageCategory = ref("");
+const router = useRouter();
 
 // Computed property to filter activities based on age category
 const filteredActivities = computed(() => {
@@ -64,7 +66,12 @@ function submitForm() {
     <div v-for="activity in filteredActivities" :key="activity.name">
       <h2>{{ activity.name }}</h2>
       <p>Available dates: {{ activity.availableDatesCount }}</p>
-      <router-link to="/select-session" type="submit">
+      <router-link
+        :to="{
+          name: 'SelectSession',
+          query: { activity: activity.name, category: ageCategory.value },
+        }"
+      >
         Select a session
       </router-link>
     </div>
