@@ -177,3 +177,10 @@ select {
   padding: 1.5em;
   min-width: 300px;
 }
+
+img {
+  width: 25px;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}

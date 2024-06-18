@@ -8,7 +8,6 @@ const activities = ref(activitiesData);
 const selectedActivityName = ref(route.query.activity);
 const selectedCategory = ref(route.query.category);
 
-// Computed property to filter sessions based on the selected activity and age category
 const filteredSessions = computed(() => {
   const activity = activities.value.find(
     (act) => act.name === selectedActivityName.value
@@ -27,8 +26,8 @@ async function fetchSessions() {
     const response = await fetch(activitiesData);
     if (!response.ok) throw new Error("Failed to fetch");
     const data = await response.json();
-    filteredSessions.value = data.sessions; // Adjust according to your data structure
-    selectedActivityName.value = data.activityName; // Adjust according to your data structure
+    filteredSessions.value = data.sessions;
+    selectedActivityName.value = data.activityName;
   } catch (err) {
     error.value = err.message;
   } finally {
@@ -42,6 +41,11 @@ onMounted(() => {
 </script>
 
 <template>
+  <div class="return">
+    <router-link to="/event-choice"
+      ><img src="../assets/arrow-left.svg" alt="Return"
+    /></router-link>
+  </div>
   <div class="form-step">
     <p class="steps done-step">1</p>
     <div class="line done-line"></div>

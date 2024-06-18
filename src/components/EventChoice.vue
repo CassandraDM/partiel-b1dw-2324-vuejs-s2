@@ -9,7 +9,6 @@ const selectedCategory = ref("");
 const ageCategory = ref("");
 const router = useRouter();
 
-// Computed property to filter activities based on age category
 const filteredActivities = computed(() => {
   if (!ageCategory.value) return [];
   return activities.value
@@ -26,16 +25,12 @@ const filteredActivities = computed(() => {
     .filter((activity) => activity.sessions.length > 0);
 });
 
-// Method to update selected sport and category
 function selectActivity(sport, category) {
   selectedSport.value = sport;
   selectedCategory.value = category;
 }
 
-// Method to handle form submission
 function submitForm() {
-  // Placeholder for form submission logic
-  // This could involve emitting an event or navigating to another component
   console.log(
     "Form submitted with:",
     selectedSport.value,
@@ -45,6 +40,9 @@ function submitForm() {
 </script>
 
 <template>
+  <router-link to="/"
+    ><img src="../assets/arrow-left.svg" alt="Return"
+  /></router-link>
   <div class="form-step">
     <p class="steps done-step">1</p>
     <div class="line done-line"></div>
