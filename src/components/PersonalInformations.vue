@@ -47,9 +47,7 @@ const isValidPostalCode = computed(() => /^[0-9]{5}$/.test(postalCode.value));
       </div>
       <div class="form-element">
         <input id="email" type="email" v-model="email" placeholder="Email" />
-        <span v-if="!isValidEmail"
-          >Email must be valid (name@domaine.com).</span
-        >
+        <span v-if="!isValidEmail">Email must be valid (name@domain.com).</span>
       </div>
       <div class="form-element">
         <input id="phone" type="tel" v-model="phone" placeholder="Phone" />
